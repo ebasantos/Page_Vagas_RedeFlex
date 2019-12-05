@@ -4,78 +4,46 @@
     Layout = null;
 }
 <html lang="pt-br">
-<body>
+<head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Assets/style.css" />
     <link href="~/Assets/sign.css" rel="stylesheet" />
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro de Currículo - RedeFlex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
     <div class="signin_wrapper">
         @using (Html.BeginForm("Create", "Dev", FormMethod.Post, new { enctype = "multipart/form-data", @id = "formMain" }))
         {
-            <div class="row">
-
-                <div class="form-holder">
-
-                    <div class="logoFlex">
-                        <img src="~/Content/logomarca.png" />
-
-                    </div>
-
-                    <div class="form-holder2 text-center">
-                        <div class="text-center">
-                            <h3 class="black-text">
-                                Trabalhe conosco!
-                            </h3>
-                            <hr class="hr-light">
-                            <img src="~/Content/RFX.png" class="img-responsive" alt="time RFX" />
-                        </div>
-
-                        <div class="md-form">
-                            <i class="fas fa-user prefix black-text active"></i>
-                            <input type="text" name="Nome" placeholder="Digite seu nome aqui" id="nome-candidato" class="black-text form-control">
-                            <label for="nome-candidato" class="active">Seu nome:</label>
-                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="md-form">
-                            <i class="fas fa-envelope prefix black-text active"></i>
-                            <input type="email" name="Email" placeholder="Digite seu e-mail aqui" id="email-candidato" class="black-text form-control">
-                            <label for="email-candidato" class="active">Seu email:</label>
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                        <br />
-                        <div class="md-form">
-                            <div class="input-group md-form">
-                                <div class="custom-file">
-                                    <input placeholder="Anexe seu currículo aqui" name="Curriculo" type="file" class="custom-file-input" id="inputCurriculo"
-                                           aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label black-text" for="inputCurriculo">Selecionar currículo</label>
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="md-form">
-                            @Html.ValidationMessageFor(model => model.Curriculo, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <button class="btn btn-indigo btn-block">Enviar</button>
-                            <hr class="hr-light mb-3 mt-4">
-                            <div class="inline-ul text-center">
-                                <a class="p-2 m-2 tw-ic" href="https://www.facebook.com/redeflexoficial/">
-                                    <i class="fab fa-facebook black-text"></i>
-                                </a>
-                                <a class="p-2 m-2 li-ic" href="https://www.linkedin.com/company/redeflex">
-                                    <i class="fab fa-linkedin-in black-text"> </i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="top">
+                <img src="~/Content/logomarca.png" />
             </div>
-
+            <div id="bot">
+                <div id="titulo">
+                    <h3> Trabalhe Conosco! </h3>
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+                <label for="nome-candidato" class="active">
+                    Seu nome:
+                    <input type="text" name="Nome" placeholder="Digite seu nome aqui" id="nome-candidato" />
+                </label>
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <label for="email-candidato" class="active">
+                    Seu email:
+                    <input type="text" name="Email" placeholder="Digite seu e-mail aqui" id="email-candidato" />
+                </label>
+                @Html.ValidationMessageFor(model => model.Curriculo, "", new { @class = "text-danger" })
+                <div class="input-file-container">
+                    <input class="input-file" id="my-file" name="Curriculo" type="file">
+                    <label tabindex="0" for="my-file" class="input-file-trigger">Anexe seu currículo</label>
+                </div>
+                <input type="submit" class="" value="Enviar">
+            </div>
         }
     </div>
 
@@ -87,10 +55,26 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+<script>
+    document.querySelector("html").classList.add('js');
 
+    var fileInput = document.querySelector(".input-file"),
+        button = document.querySelector(".input-file-trigger"),
+        the_return = document.querySelector(".file-return");
+
+    button.addEventListener("keydown", function (event) {
+        if (event.keyCode == 13 || event.keyCode == 32) {
+            fileInput.focus();
+        }
+    });
+    button.addEventListener("click", function (event) {
+        fileInput.focus();
+        return false;
+    });
+</script>
 <script>
     $(function () {
-        
+
         if (@ViewBag.Erro)
         {
             Swal.fire(
@@ -100,7 +84,7 @@
             )
         }
     });
-    
+
     $('#formMain').submit(function (event) {
         if ($('#nome-candidato').val() && $('#email-candidato').val() && $('#inputCurriculo').val()) {
             Swal.fire(

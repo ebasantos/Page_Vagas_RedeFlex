@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\lock.png" />
     <Content Include="Content\lockFlex.png" />
     <Content Include="Content\logomarca.png" />
     <Content Include="Content\RFX.png" />
@@ -189,12 +190,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Utilidades\Utilidades.csproj">
-      <Project>{a7be34ef-e958-426c-b5bc-0844084f7e72}</Project>
-      <Name>Utilidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

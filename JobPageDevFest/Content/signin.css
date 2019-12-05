@@ -177,21 +177,10 @@ textarea.materialize-textarea {
   /* prevents text jump on Enter keypress */
 }
 .signin_wrapper {
-    /*background: url('../../Content/img/loginbg.jpg');*/
     background: url(../images/lock.jpg);
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    /* background setup */
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    /* custom background-position */
-    background-position: 50% 50%;
-    /* ie8- graceful degradation */
-    background-position: 50% 50%9 !important;
+    background-size: cover;
 }
 .signin_wrapper .right_block {
   position: fixed;

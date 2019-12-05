@@ -8,108 +8,102 @@ body {
     height: 100%;
     position: relative;
 }
-/***************************
-   Text Inputs + Textarea
-****************************/
-.input-field {
-    position: relative;
-    margin-top: 1rem;
+
+
+.input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -o-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
 }
 
-    .input-field label {
-        color: #9e9e9e;
-        position: absolute;
-        top: 0.8rem;
-        left: 0.75rem;
-        font-size: 1rem;
-        cursor: text;
-        -webkit-transition: 0.2s ease-out;
-        -moz-transition: 0.2s ease-out;
-        -o-transition: 0.2s ease-out;
-        -ms-transition: 0.2s ease-out;
-        transition: 0.2s ease-out;
+    .input-field label.active {
+        font-size: 0.8rem;
+        -webkit-transform: translateY(-140%);
+        -moz-transform: translateY(-140%);
+        -ms-transform: translateY(-140%);
+        -o-transform: translateY(-140%);
+        transform: translateY(-140%);
     }
 
-        .input-field label.active {
-            font-size: 0.8rem;
-            -webkit-transform: translateY(-140%);
-            -moz-transform: translateY(-140%);
-            -ms-transform: translateY(-140%);
-            -o-transform: translateY(-140%);
-            transform: translateY(-140%);
-        }
+.input-field input[type=text]:focus + label,
+.input-field input[type=password]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=url]:focus + label,
+.input-field input[type=date]:focus + label,
+.input-field input[type=tel]:focus + label,
+.input-field input[type=number]:focus + label,
+.input-field input[type=search]:focus + label,
+.input-field textarea:focus.materialize-textarea + label {
+    color: #26a69a;
+}
 
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=password]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=url]:focus + label,
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=tel]:focus + label,
-    .input-field input[type=number]:focus + label,
-    .input-field input[type=search]:focus + label,
-    .input-field textarea:focus.materialize-textarea + label {
+.input-field input[type=text].valid,
+.input-field input[type=password].valid,
+.input-field input[type=email].valid,
+.input-field input[type=url].valid,
+.input-field input[type=date].valid,
+.input-field input[type=tel].valid,
+.input-field input[type=number].valid,
+.input-field input[type=search].valid,
+.input-field textarea.materialize-textarea.valid {
+    border-bottom: 1px solid #4CAF50;
+    -webkit-box-shadow: 0 1px 0 0 #4CAF50;
+    -moz-box-shadow: 0 1px 0 0 #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}
+
+.input-field input[type=text].invalid,
+.input-field input[type=password].invalid,
+.input-field input[type=email].invalid,
+.input-field input[type=url].invalid,
+.input-field input[type=date].invalid,
+.input-field input[type=tel].invalid,
+.input-field input[type=number].invalid,
+.input-field input[type=search].invalid,
+.input-field textarea.materialize-textarea.invalid {
+    border-bottom: 1px solid #F44336;
+    -webkit-box-shadow: 0 1px 0 0 #F44336;
+    -moz-box-shadow: 0 1px 0 0 #F44336;
+    box-shadow: 0 1px 0 0 #F44336;
+}
+
+.input-field .prefix {
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+    .input-field .prefix.active {
         color: #26a69a;
     }
 
-    .input-field input[type=text].valid,
-    .input-field input[type=password].valid,
-    .input-field input[type=email].valid,
-    .input-field input[type=url].valid,
-    .input-field input[type=date].valid,
-    .input-field input[type=tel].valid,
-    .input-field input[type=number].valid,
-    .input-field input[type=search].valid,
-    .input-field textarea.materialize-textarea.valid {
-        border-bottom: 1px solid #4CAF50;
-        -webkit-box-shadow: 0 1px 0 0 #4CAF50;
-        -moz-box-shadow: 0 1px 0 0 #4CAF50;
-        box-shadow: 0 1px 0 0 #4CAF50;
+    .input-field .prefix ~ input,
+    .input-field .prefix ~ textarea {
+        margin-left: 3rem;
+        width: 92%;
+        /*width: calc(100% - 3rem);*/
     }
 
-    .input-field input[type=text].invalid,
-    .input-field input[type=password].invalid,
-    .input-field input[type=email].invalid,
-    .input-field input[type=url].invalid,
-    .input-field input[type=date].invalid,
-    .input-field input[type=tel].invalid,
-    .input-field input[type=number].invalid,
-    .input-field input[type=search].invalid,
-    .input-field textarea.materialize-textarea.invalid {
-        border-bottom: 1px solid #F44336;
-        -webkit-box-shadow: 0 1px 0 0 #F44336;
-        -moz-box-shadow: 0 1px 0 0 #F44336;
-        box-shadow: 0 1px 0 0 #F44336;
+    .input-field .prefix ~ textarea {
+        padding-top: 0.8rem;
     }
 
-    .input-field .prefix {
-        position: absolute;
-        width: 3rem;
-        font-size: 2rem;
-        -webkit-transition: color 0.2s;
-        -moz-transition: color 0.2s;
-        -o-transition: color 0.2s;
-        -ms-transition: color 0.2s;
-        transition: color 0.2s;
+    .input-field .prefix ~ label {
+        margin-left: 3rem;
     }
-
-        .input-field .prefix.active {
-            color: #26a69a;
-        }
-
-        .input-field .prefix ~ input,
-        .input-field .prefix ~ textarea {
-            margin-left: 3rem;
-            width: 92%;
-            /*width: calc(100% - 3rem);*/
-        }
-
-        .input-field .prefix ~ textarea {
-            padding-top: 0.8rem;
-        }
-
-        .input-field .prefix ~ label {
-            margin-left: 3rem;
-        }
 /*@media only screen and (max-width : 992px) {
     .input-field .prefix ~ input {
       width: 86%;
@@ -193,7 +187,7 @@ textarea {
 
 .signin_wrapper {
     /*background: url('../../Content/img/loginbg.jpg');*/
-    background: url('../Content/lockFlex.png');
+    background: url('../Content/lock.png');
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -206,7 +200,7 @@ textarea {
     /* custom background-position */
     background-position: 50% 50%;
     /* ie8- graceful degradation */
-    background-position: 50% 50%9 !important;
+    background-position: 50% 50% !important;
 }
 
     .signin_wrapper .right_block {
@@ -355,129 +349,31 @@ textarea {
     padding-bottom: 20px;
     text-align: center;
 }
+
+.md-form label {
+    color: black;
+}
+
 .md-form .prefix {
     top: .25rem;
     left: 0px !important;
     font-size: 1.75rem;
 }
-@media(min-width: 1281px) and (max-width: 1366px) {
-    .form-holder {
-        width: inherit;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        font-size: 24px !important;
-    }
+
+img {
+    height: 36px;
 }
-@media (min-width: 600px)  {
-    img {
-        vertical-align: middle;
-        border-style: none;
-        height: 50px;
-    }
 
-
-    .form-holder2 {
-        min-height: 400px;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.3) !important;
-        background: #f0efef;
-        opacity: .9;
-        border-radius: 5%;
-        z-index: 9999;
-        padding: 30px;
-        width: 500px;
-    }
-
-
-    body {
-        font-family: Roboto,sans-serif;
-        font-weight: 800;
-    }
-
-    ::-webkit-input-placeholder {
-        color: peachpuff;
-        font-size: 1.75rem !important;
-    }
-
-    ::-moz-placeholder {
-        color: peachpuff;
-        font-size: 1.5rem !important;
-    }
-
-    :-ms-input-placeholder {
-        color: peachpuff;
-        font-size: 1.5rem !important;
-    }
-
-    input::placeholder {
-        color: peachpuff;
-        font-size: 1.5rem !important;
-    }
+form-holder {
+    width: 501px;
 }
-@media screen and (max-width: 480px) {
 
-    input::placeholder {
-        color: peachpuff;
-        font-size: 2.5rem !important;
-    }
+.custom-file-input {
+    height: 80px;
+}
 
-    img {
-        vertical-align: middle;
-        border-style: none;
-        height: 120px;
-    }
-
-    .btn.btn-block {
-        margin: inherit;
-        height: 90px;
-        font-size: 40px;
-    }
-
-    .md-form.input-group label {
-        font-size: 40px;
-        top: 0;
-        margin-bottom: 0;
-        height: 78px;
-    }
-
-    .form-holder2 {
-        margin-top: 211px;
-        width: 100%;
-        min-height: 400px;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.3) !important;
-        background: #f0efef;
-        opacity: .9;
-        border-radius: 5%;
-        z-index: 9999;
-        padding: 30px;
-        width: 900px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .custom-file-input {
-        height: 160px;
-    }
-
-    .md-form input:not([type]), .md-form input[type=password]:not(.browser-default), .md-form input[type=email]:not(.browser-default), .md-form input[type=url]:not(.browser-default), .md-form input[type=time]:not(.browser-default), .md-form input[type=date]:not(.browser-default), .md-form input[type=datetime]:not(.browser-default), .md-form input[type=datetime-local]:not(.browser-default), .md-form input[type=tel]:not(.browser-default), .md-form input[type=number]:not(.browser-default), .md-form input[type=search]:not(.browser-default), .md-form input[type=search-md], .md-form input[type=text]:not(.browser-default), .md-form textarea.md-textarea {
-        height: 160px;
-    }
-
-    label {
-        font-size: 180px;
-    }
-
-    h3 {
-        font-size: 64px;
-    }
-
-    .signin_wrapper {
-        display: flex;
-    }
-
-    .form-holder {
-        width: inherit;
-        right: 5%;
-    }
+.md-form label {
+    transform: translateY(4px);
 }
 
 .form-holder .form-control {
@@ -491,3 +387,248 @@ textarea {
     vertical-align: middle;
 }
 
+
+
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+::placeholder {
+    color: dimgrey;
+}
+
+::selection {
+    background-color: #098147;
+    color: white;
+}
+
+
+body {
+    color: black;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+form {
+    background-color: #f5f0f0;
+    opacity: 0.95;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3) !important;
+    height: 490px;
+    width: calc(290px + 5vw);
+    margin: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+    form > #top {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    form > #bot {
+        margin: 10px 0px;
+        width: 100%;
+        height: calc(75% - 20px);
+        text-align: center;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+        form > #bot > #titulo {
+            padding: 0 10px;
+            width: 100%;
+        }
+
+        form > #bot > label > input {
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+            transition: 0.8s;
+            border: #00e27100 solid 2px;
+            outline: none;
+        }
+
+            form > #bot > label > input:focus {
+                border: #751205 solid 2px;
+            }
+
+        form > #bot > input[type=submit] {
+            width: 50%;
+            border-radius: 10px;
+            height: 35px;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            background-color: #751205;
+            color: white;
+            cursor: pointer;
+        }
+
+            form > #bot > input[type=button]:hover {
+                background-color: #004824;
+            }
+
+
+.input-file {
+    height: 10px;
+}
+@media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 1fr 5fr 5fr 1fr;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    #aut {
+        opacity: 0.2;
+    }
+
+        #aut:hover {
+            opacity: 1;
+        }
+}
+
+@media (min-width: 100px) and (max-width: 320px) {
+    form {
+        height: 484px;
+        width: calc(270px + 5vw);
+    }
+
+        form > #bot > label > input {
+            width: 217px;
+        }
+}
+
+@media (min-width:350px) and (max-width: 490px) {
+    form {
+        height: 428px;
+        width: calc(329px + 5vw);
+    }
+
+        form > #bot > input[type=button] {
+            width: 30%;
+            border-radius: 10px;
+            height: 26px;
+            font-size: 12px;
+        }
+
+    label {
+        height: 63px;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+
+
+
+    body {
+        grid-template-columns: 1fr 3fr 3fr 1fr;
+    }
+}
+
+@keyframes cor {
+    0% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+#file {
+    width: 292px;
+    z-index: -1;
+}
+/*input[type="file"] {
+    display: none;
+}
+
+input[type='file']  {
+    border-radius: 10px;
+    transition: 0.4s;
+    background-color: #751205;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}*/
+
+.input-file-container {
+    position: relative;
+    width: 225px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    background-color: #751205;
+    color: white;
+    cursor: pointer;
+}
+
+.js .input-file-trigger {
+    display: block;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.js .input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0;
+    cursor: pointer;
+}
+
+
+.file-return {
+    margin: 0;
+}
+
+    .file-return:not(:empty) {
+        margin: 1em 0;
+    }
+
+.js .file-return {
+    font-style: italic;
+    font-size: .9em;
+}
+
+    .js .file-return:not(:empty):before {
+        content: "Selected file: ";
+        font-style: normal;
+        font-weight: normal;
+    }
